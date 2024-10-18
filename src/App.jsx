@@ -1,8 +1,74 @@
+import { useRef } from "react";
 import useScrollPosition from "./hooks/useScrollPosition";
 function App() {
+  const divRef = useRef(null);
   const pos = useScrollPosition();
+  const divPos = useScrollPosition(divRef);
   return (
     <>
+      <div
+        ref={divRef}
+        style={{
+          overflow: "scroll",
+          height: "300px",
+          width: "400px",
+          margin: "0 auto",
+        }}
+      >
+        <h2 style={{ position: "sticky", top: "0" }}>{divPos}</h2>
+        <p
+          style={{
+            padding: "0 5rem 0",
+            fontFamily: "Arial",
+            textAlign: "justify",
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          iaculis porttitor finibus. Sed eget risus nec quam facilisis
+          facilisis. Donec sit amet commodo leo. Quisque neque eros, hendrerit
+          at ipsum in, viverra consequat leo. Aliquam erat volutpat. Vestibulum
+          ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+          curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Aliquam ipsum ex, vulputate ut justo quis, scelerisque malesuada nisl.
+          Suspendisse ac leo finibus, tempus ligula id, ultrices velit. Etiam eu
+          suscipit massa, quis luctus velit. Pellentesque pretium tempus
+          dapibus. Nullam elit magna, cursus ut placerat nec, auctor ac lacus.
+          Nunc a nisi eget leo pharetra iaculis id luctus purus. Mauris nec
+          pharetra quam. Aenean rutrum neque in nibh luctus tristique. Donec
+          accumsan aliquam nisl, ultricies vulputate lorem laoreet at. Morbi
+          posuere leo facilisis nisi maximus, quis rutrum ante bibendum. Morbi
+          auctor leo at turpis finibus, ac vulputate erat vehicula. Pellentesque
+          vitae purus sollicitudin, hendrerit diam quis, luctus diam. Integer et
+          metus non odio molestie ultrices. Pellentesque vulputate, risus eu
+          facilisis tempus, nisi mauris accumsan enim, vitae vestibulum augue mi
+          sit amet ipsum. Morbi rhoncus faucibus metus sed ullamcorper. Duis
+          varius bibendum hendrerit. Fusce a rhoncus augue, et vehicula diam.
+          Vestibulum sed sollicitudin nibh. Suspendisse vel nisl ut augue
+          lobortis pharetra a eu lacus. Pellentesque massa dolor, luctus non
+          felis eget, consequat aliquam erat. Donec bibendum dui dui, a aliquet
+          lacus mollis et. Cras vestibulum mollis pretium. Vivamus eget magna
+          nec enim mattis semper. Donec nec nisi in nunc ultricies sodales sit
+          amet efficitur libero. Sed vehicula lorem eget ante pharetra, vel
+          sollicitudin diam lacinia. Nunc dolor orci, auctor quis aliquam
+          molestie, sollicitudin at libero. Sed congue lorem bibendum lorem
+          pharetra, lacinia fermentum odio molestie. Mauris sed orci tincidunt,
+          malesuada augue at, rutrum risus. Mauris vel ligula felis. Nullam
+          ornare nibh leo, ut lobortis lacus bibendum et. Vivamus et convallis
+          sem. Donec nec efficitur nunc. Integer mattis magna non quam
+          consectetur facilisis. Vivamus vitae urna non magna venenatis
+          vulputate sed ut magna. Aenean ante quam, scelerisque fringilla ornare
+          consectetur, viverra sit amet enim. Suspendisse non tempor velit, non
+          accumsan dolor. Maecenas euismod nulla eu lectus luctus congue vitae
+          sit amet velit. Curabitur faucibus, velit et dignissim interdum, justo
+          tortor cursus felis, vulputate semper dolor ex commodo justo.
+          Suspendisse ut ipsum in eros consequat rutrum quis in nunc. Phasellus
+          at augue sapien. Maecenas dictum eros ac dui facilisis lacinia. Proin
+          ullamcorper sagittis sapien nec dapibus. Cras vitae libero ligula.
+          Cras interdum quam eget diam elementum aliquet. Curabitur lacus ante,
+          convallis ut mi id, tempor gravida dui. Aenean pharetra ullamcorper
+          sapien in aliquam. Suspendisse quis consequat mauris.
+        </p>
+      </div>
       <h1 style={{ position: "sticky", top: "0" }}>{pos}</h1>
       <p
         style={{
