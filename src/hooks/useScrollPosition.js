@@ -4,17 +4,24 @@ const getPosition = (element) => {
   return element == window ? window.scrollY : element.scrollTop;
 };
 
-function useScrollPosition(elementRef = null) {
-  const [scrollPosition, setScrollPosition] = useState(0);
+const setPosition = (element, startPosition) => {
+  if (element === window) window.scrollTo(0, startPosition);
+  else element.scrollTop = startPosition;
+};
+
+function useScrollPosition(startPosition = 0, elementRef = null) {
+  const [scrollPosition, setScrollPosition] = useState(startPosition);
   useEffect(() => {
     const element = elementRef?.current ?? window;
+    setPosition(element, startPosition);
+
     const updateScrollPosition = () => setScrollPosition(getPosition(element));
     element.addEventListener("scroll", updateScrollPosition);
 
     return () => {
       element.removeEventListener("scroll", updateScrollPosition);
     };
-  }, [elementRef]);
+  }, [elementRef, startPosition]);
 
   return scrollPosition;
 }

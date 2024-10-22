@@ -3,7 +3,7 @@ import useScrollPosition from "./hooks/useScrollPosition";
 function App() {
   const divRef = useRef(null);
   const pos = useScrollPosition();
-  const divPos = useScrollPosition(divRef);
+  const divPos = useScrollPosition(500, divRef);
   return (
     <>
       <div
