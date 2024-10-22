@@ -7,8 +7,8 @@ const getPosition = (element) => {
 
 function useScrollPosition(elementRef = null) {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const element = elementRef?.current;
   useEffect(() => {
+    const element = elementRef?.current;
     const updateScrollPosition = () => setScrollPosition(getPosition(element));
 
     if (element) {
@@ -24,7 +24,7 @@ function useScrollPosition(elementRef = null) {
         window.removeEventListener("scroll", updateScrollPosition);
       }
     };
-  }, [element, elementRef]);
+  }, [elementRef]);
 
   return scrollPosition;
 }
